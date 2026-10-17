@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">— IT Network Engineer</title>
+<meta name="description" content="Personal branding website — IT Network Engineer. Building Reliable Networks. Automating IT with AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a1120; --bg2:#0d1526; --panel:#111c30; --panel2:#152238;
+  --line:#1e2d47; --text:#e8eef9; --muted:#94a6c0; --dim:#5f7191;
+  --accent:#2fd47e; --accent2:#22b8cf; --accent-dim:rgba(47,212,126,.12);
+  --radius:14px; --mono:'JetBrains Mono','SFMono-Regular',Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',system-ui,sans-serif;line-height:1.65;overflow-x:hidden}
+::selection{background:var(--accent);color:#06130c}
+h1,h2,h3,h4{line-height:1.25;font-weight:700;letter-spacing:-.01em}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+section{padding:96px 0;scroll-margin-top:80px}
+.mono{font-family:var(--mono)}
+
+/* ---------- NAV ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(14px);background:rgba(10,17,32,.82);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:var(--mono);font-weight:700;font-size:1rem;color:var(--text);display:flex;align-items:center;gap:10px}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.nav-links{display:flex;gap:6px;list-style:none}
+.nav-links a{color:var(--muted);font-size:.9rem;padding:8px 14px;border-radius:8px;transition:.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--text);background:var(--panel2);text-decoration:none}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:8px;color:var(--text);padding:8px 12px;cursor:pointer;font-size:1.1rem}
+
+/* ---------- HERO ---------- */
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:120px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(600px 400px at 80% 20%,rgba(34,184,207,.07),transparent 60%),
+  radial-gradient(700px 500px at 15% 85%,rgba(47,212,126,.06),transparent 60%)}
+#topo{position:absolute;inset:0;width:100%;height:100%;opacity:.5;pointer-events:none}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.status-pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.78rem;color:var(--accent);background:var(--accent-dim);border:1px solid rgba(47,212,126,.3);padding:6px 14px;border-radius:999px;margin-bottom:22px}
+.status-pill i{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+.hero h1{font-size:clamp(2.2rem,5vw,3.6rem);margin-bottom:6px}
+.hero h1 .grad{background:linear-gradient(120deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .role{font-family:var(--mono);color:var(--accent2);font-size:1.05rem;margin-bottom:20px}
+.hero .tagline{font-size:1.25rem;font-weight:600;color:var(--text);margin-bottom:14px}
+.hero p.lead{color:var(--muted);max-width:560px;margin-bottom:32px}
+.btn-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:10px;font-weight:600;font-size:.95rem;cursor:pointer;transition:.25s;border:1px solid transparent}
+.btn-primary{background:var(--accent);color:#06130c}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(47,212,126,.25);text-decoration:none}
+.btn-ghost{border-color:var(--line);color:var(--text);background:var(--panel)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;transform:translateY(-2px)}
+.hero-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;font-family:var(--mono);font-size:.82rem;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.hero-card .bar{display:flex;gap:6px;margin-bottom:14px}
+.hero-card .bar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.hero-card .bar i:first-child{background:#e0655f}.hero-card .bar i:nth-child(2){background:#e0b25f}.hero-card .bar i:nth-child(3){background:var(--accent)}
+.hero-card pre{white-space:pre-wrap;color:var(--muted)}
+.hero-card .ok{color:var(--accent)}.hero-card .warn{color:#e0b25f}.hero-card .info{color:var(--accent2)}
+.cursor{display:inline-block;width:8px;height:15px;background:var(--accent);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:var(--dim);font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;animation:floaty 2.6s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+/* ---------- SECTION HEADERS ---------- */
+.sec-head{margin-bottom:52px;max-width:680px}
+.sec-kicker{font-family:var(--mono);font-size:.78rem;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:12px}
+.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:12px}
+.sec-head p{color:var(--muted)}
+
+/* ---------- SKILLS ---------- */
+#skills{background:var(--bg2)}
+.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skill-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:.25s;position:relative;overflow:hidden}
+.skill-card::after{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0;transition:.25s}
+.skill-card:hover{transform:translateY(-4px);border-color:#29405f}
+.skill-card:hover::after{opacity:1}
+.skill-icon{width:44px;height:44px;border-radius:10px;background:var(--accent-dim);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--accent)}
+.skill-card h3{font-size:1.05rem;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.chips li{font-family:var(--mono);font-size:.75rem;color:var(--muted);background:var(--panel2);border:1px solid var(--line);padding:5px 11px;border-radius:999px;transition:.2s}
+.skill-card:hover .chips li{border-color:#29405f;color:var(--text)}
+
+/* ---------- PROJECTS ---------- */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.proj-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:.25s;display:flex;flex-direction:column}
+.proj-card:hover{transform:translateY(-5px);border-color:rgba(47,212,126,.4);box-shadow:0 18px 44px rgba(0,0,0,.4)}
+.proj-visual{height:150px;position:relative;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.72rem;color:var(--dim)}
+.proj-body{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.proj-cat{font-family:var(--mono);font-size:.7rem;color:var(--accent2);letter-spacing:.12em;text-transform:uppercase}
+.proj-body h3{font-size:1.05rem}
+.proj-body p{color:var(--muted);font-size:.88rem;flex:1}
+.demo-badge{font-family:var(--mono);font-size:.65rem;color:#e0b25f;background:rgba(224,178,95,.1);border:1px solid rgba(224,178,95,.3);padding:3px 10px;border-radius:999px;display:inline-block;width:fit-content}
+.proj-tech{display:flex;flex-wrap:wrap;gap:6px;list-style:none}
+.proj-tech li{font-family:var(--mono);font-size:.68rem;color:var(--dim);background:var(--panel2);padding:3px 9px;border-radius:6px}
+.proj-link{font-size:.85rem;font-weight:600;margin-top:4px}
+
+/* ---------- BLOG ---------- */
+#blog{background:var(--bg2)}
+.filter-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.filter-btn{font-family:var(--mono);font-size:.78rem;color:var(--muted);background:var(--panel);border:1px solid var(--line);padding:8px 16px;border-radius:999px;cursor:pointer;transition:.2s}
+.filter-btn:hover{color:var(--text);border-color:#29405f}
+.filter-btn.active{background:var(--accent);color:#06130c;border-color:var(--accent);font-weight:600}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.post-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:.25s;display:flex;flex-direction:column}
+.post-card:hover{transform:translateY(-4px);border-color:rgba(34,184,207,.4)}
+.post-cover{height:120px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:2rem}
+.post-body{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.post-meta{display:flex;gap:12px;font-family:var(--mono);font-size:.68rem;color:var(--dim)}
+.post-cat{color:var(--accent)}
+.post-body h3{font-size:.98rem}
+.post-body p{color:var(--muted);font-size:.84rem;flex:1}
+.read-more{font-size:.82rem;font-weight:600}
+
+/* ---------- ABOUT ---------- */
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;align-items:start}
+.about-visual{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px;font-family:var(--mono);font-size:.78rem;position:sticky;top:96px}
+.about-visual h4{font-family:var(--mono);color:var(--accent);font-size:.8rem;letter-spacing:.14em;margin-bottom:16px}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.kv span:first-child{color:var(--dim)}.kv span:last-child{color:var(--text);text-align:right}
+.about-text p{color:var(--muted);margin-bottom:18px}
+.about-text h3{color:var(--text);font-size:1.15rem;margin:28px 0 12px;display:flex;align-items:center;gap:10px}
+.about-text h3::before{content:"";width:22px;height:2px;background:var(--accent)}
+.tl{border-left:2px solid var(--line);margin-left:6px;padding-left:22px;display:flex;flex-direction:column;gap:18px}
+.tl-item{position:relative}
+.tl-item::before{content:"";position:absolute;left:-28px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-dim)}
+.tl-item h4{font-size:.95rem;color:var(--text)}
+.tl-item p{font-size:.86rem;color:var(--muted);margin:0}
+.note-box{margin-top:26px;background:var(--accent-dim);border:1px solid rgba(47,212,126,.25);border-radius:10px;padding:16px 20px;font-size:.85rem;color:var(--muted)}
+.note-box strong{color:var(--accent)}
+
+/* ---------- CONTACT ---------- */
+#contact{background:var(--bg2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.contact-info p{color:var(--muted);margin-bottom:26px}
+.contact-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+.contact-links a{display:flex;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 18px;color:var(--text);font-size:.92rem;transition:.2s}
+.contact-links a:hover{border-color:var(--accent);transform:translateX(4px);text-decoration:none}
+.contact-links .ci{width:36px;height:36px;border-radius:9px;background:var(--accent-dim);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0}
+.contact-links small{display:block;color:var(--dim);font-family:var(--mono);font-size:.7rem}
+form{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.field{margin-bottom:18px}
+label{display:block;font-size:.82rem;font-weight:600;margin-bottom:7px;color:var(--text)}
+input,textarea,select{width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:9px;padding:12px 14px;color:var(--text);font-family:inherit;font-size:.92rem;transition:.2s}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-dim)}
+textarea{resize:vertical;min-height:120px}
+.err{display:none;color:#e0655f;font-size:.76rem;margin-top:6px;font-family:var(--mono)}
+.field.invalid input,.field.invalid textarea{border-color:#e0655f}
+.field.invalid .err{display:block}
+.form-note{font-size:.78rem;color:var(--dim);margin-top:14px;display:flex;gap:8px;align-items:flex-start}
+.form-ok{display:none;background:var(--accent-dim);border:1px solid rgba(47,212,126,.35);color:var(--accent);border-radius:10px;padding:14px 16px;margin-top:16px;font-size:.86rem;font-family:var(--mono)}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line);padding:38px 0;background:var(--bg)}
+.foot-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer p{color:var(--dim);font-size:.82rem;font-family:var(--mono)}
+.foot-links{display:flex;gap:18px}
+.foot-links a{color:var(--muted);font-size:.82rem;font-family:var(--mono)}
+
+/* ---------- MODAL ---------- */
+.modal-overlay{position:fixed;inset:0;background:rgba(5,9,18,.75);backdrop-filter:blur(6px);z-index:200;display:none;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto}
+.modal-overlay.open{display:flex}
+.modal{background:var(--bg2);border:1px solid var(--line);border-radius:16px;max-width:820px;width:100%;padding:36px;position:relative;animation:modalIn .28s ease}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.modal-close{position:absolute;top:16px;right:16px;background:var(--panel2);border:1px solid var(--line);color:var(--muted);width:36px;height:36px;border-radius:9px;cursor:pointer;font-size:1rem;transition:.2s}
+.modal-close:hover{color:var(--text);border-color:var(--accent)}
+.modal .m-kicker{font-family:var(--mono);font-size:.72rem;color:var(--accent2);letter-spacing:.16em;text-transform:uppercase}
+.modal h2{font-size:1.5rem;margin:8px 0 6px}
+.modal .m-meta{color:var(--dim);font-family:var(--mono);font-size:.75rem;margin-bottom:22px}
+.m-block{margin-bottom:24px}
+.m-block h3{font-size:.95rem;color:var(--accent);margin-bottom:8px;font-family:var(--mono);letter-spacing:.06em}
+.m-block p,.m-block li{color:var(--muted);font-size:.9rem}
+.m-block ul{padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.m-code{background:#070d1a;border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-family:var(--mono);font-size:.76rem;color:var(--muted);overflow-x:auto;white-space:pre;line-height:1.7}
+.m-result{display:flex;gap:10px;align-items:flex-start;background:var(--accent-dim);border:1px solid rgba(47,212,126,.25);border-radius:10px;padding:14px 16px;font-size:.86rem;color:var(--text)}
+.m-result::before{content:"✓";color:var(--accent);font-weight:700}
+.m-learn{background:rgba(224,178,95,.08);border:1px solid rgba(224,178,95,.25);border-radius:10px;padding:14px 16px;font-size:.86rem;color:var(--muted)}
+.m-learn::before{content:"💡 ";content:"» ";color:#e0b25f;font-weight:700}
+.related{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.related a{font-family:var(--mono);font-size:.75rem;background:var(--panel);border:1px solid var(--line);padding:7px 14px;border-radius:999px;color:var(--muted);cursor:pointer}
+.related a:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+
+/* reveal animation */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-card{display:none}
+  .skill-grid,.proj-grid,.blog-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .about-visual{position:static}
+}
+@media(max-width:620px){
+  section{padding:64px 0}
+  .skill-grid,.proj-grid,.blog-grid{grid-template-columns:1fr}
+  .nav-links{position:fixed;top:64px;left:0;right:0;background:var(--bg2);flex-direction:column;padding:16px 24px 24px;border-bottom:1px solid var(--line);display:none}
+  .nav-links.open{display:flex}
+  .burger{display:block}
+  .modal{padding:26px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#home" class="brand"><span class="dot"></span><span id="brand-name">network.engineer</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="home">
+  <svg id="topo" preserveAspectRatio="xMidYMid slice"></svg>
+  <div class="container hero-inner">
+    <div>
+      <span class="status-pill"><i></i> OPEN FOR COLLABORATION · INDONESIA</span>
+      <h1>Halo, saya <span class="grad" id="hero-name">Nama Anda</span></h1>
+      <div class="role">~$ whoami → IT Network Engineer</div>
+      <div class="tagline">Building Reliable Networks. Automating IT with AI.</div>
+      <p class="lead">Saya berfokus pada pengelolaan infrastruktur jaringan, troubleshooting, monitoring sistem, dan pengembangan otomasi IT menggunakan Linux serta AI.</p>
+      <div class="btn-row">
+        <a href="#projects" class="btn btn-primary">Explore My Projects →</a>
+        <a href="#blog" class="btn btn-ghost">Read Technical Blog</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <pre id="term"><span class="info">$</span> ping -c 4 core-switch.lab
+<span class="ok">64 bytes from 10.10.0.2: icmp_seq=1 ttl=64 time=0.8ms</span>
+<span class="ok">64 bytes from 10.10.0.2: icmp_seq=2 ttl=64 time=0.7ms</span>
+<span class="warn">--- packet loss 0.0% · latency stable ---</span>
+<span class="info">$</span> docker ps --format "table"
+<span class="ok">monitoring   Up 3 weeks   grafana:3000</span>
+<span class="ok">alert-bot    Up 3 weeks   telegram-webhook</span>
+<span class="info">$</span> systemctl status uptime-kuma
+<span class="ok">● active (running) — all nodes green</span>
+<span class="info">$</span> <span class="cursor"></span></pre>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL ▾</div>
+</header>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">// 01 · Skills</span>
+      <h2>Area Keahlian</h2>
+      <p>Kemampuan dikelompokkan berdasarkan domain pekerjaan — tanpa rating persentase yang tidak berdasar.</p>
+    </div>
+    <div class="skill-grid reveal">
+      <div class="skill-card">
+        <div class="skill-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5 6 17M12 7.5 18 17M7.5 19h9"/></svg></div>
+        <h3>Networking</h3>
+        <ul class="chips"><li>Routing</li><li>Switching</li><li>VLAN</li><li>Wi-Fi</li><li>Firewall</li><li>VPN</li><li>QoS</li></ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01M12 10v4"/></svg></div>
+        <h3>Network Infrastructure</h3>
+        <ul class="chips"><li>H3C</li><li>UniFi</li><li>Sundray</li><li>Sangfor</li></ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8l3 3-3 3M12 16h5"/></svg></div>
+        <h3>Server & Virtualization</h3>
+        <ul class="chips"><li>Ubuntu Server</li><li>Linux</li><li>Docker</li><li>VMware</li><li>Proxmox</li></ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+        <h3>Monitoring</h3>
+        <ul class="chips"><li>Network Monitoring</li><li>Latency</li><li>Availability</li><li>Alerting</li></ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/><circle cx="12" cy="12" r="3.5"/></svg></div>
+        <h3>AI & Automation</h3>
+        <ul class="chips"><li>Hermes Agent</li><li>Telegram Automation</li><li>Scripting</li><li>AI Integration</li></ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h13a4 4 0 0 1 4 4v7M2 8v11h13M2 8l4-4h8l3 4"/><circle cx="17" cy="17" r="2"/></svg></div>
+        <h3>CCTV & Systems</h3>
+        <ul class="chips"><li>Hikvision</li><li>NVR</li><li>HikCentral</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">// 02 · Projects</span>
+      <h2>Portofolio Proyek</h2>
+      <p>Dokumentasi proyek infrastruktur, monitoring, dan otomasi. Semua konten berlabel <span class="demo-badge">DEMO</span> adalah data contoh hingga konten produksi tersedia.</p>
+    </div>
+    <div class="proj-grid reveal" id="proj-grid"></div>
+  </div>
+</section>
+
+<!-- ============ BLOG ============ -->
+<section id="blog">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">// 03 · Technical Blog</span>
+      <h2>Catatan Teknis</h2>
+      <p>Tutorial, troubleshooting, dan eksperimen — dari konfigurasi perangkat jaringan hingga AI Agent.</p>
+    </div>
+    <div class="filter-row reveal" id="filter-row"></div>
+    <div class="blog-grid reveal" id="blog-grid"></div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">// 04 · About</span>
+      <h2>Tentang Saya</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <h4># cat ~/profil.txt</h4>
+        <div class="kv"><span>nama</span><span id="about-name">Nama Anda</span></div>
+        <div class="kv"><span>peran</span><span>IT Network Engineer</span></div>
+        <div class="kv"><span>lokasi</span><span>Indonesia</span></div>
+        <div class="kv"><span>fokus</span><span>Networking · Monitoring · AI</span></div>
+        <div class="kv"><span>favorit</span><span>terminal, log yang bersih</span></div>
+        <div class="kv"><span>status</span><span style="color:var(--accent)">● siap diskusi</span></div>
+      </div>
+      <div class="about-text reveal">
+        <h3>Profil Profesional</h3>
+        <p>Saya seorang IT Network Engineer yang berfokus pada keandalan infrastruktur: dari perencanaan topologi, konfigurasi perangkat, hingga memastikan layanan berjalan stabil. Saya percaya jaringan yang baik adalah jaringan yang bisa diukur, dimonitor, dan didokumentasikan dengan baik.</p>
+        <h3>Pendekatan Problem Solving</h3>
+        <p>Setiap masalah IT saya perlakukan seperti ticket troubleshooting: reproduksi masalah, isolasi layer (fisik → data link → network → aplikasi), verifikasi dengan data (log, capture, metric), baru kemudian perbaikan. Doku mentasi langkah perbaikan agar masalah serupa bisa diselesaikan lebih cepat di masa depan.</p>
+        <h3>Perjalanan Belajar</h3>
+        <div class="tl">
+          <div class="tl-item">
+            <h4>Fondasi Networking</h4>
+            <p>Membangun pemahaman routing, switching, VLAN, dan wireless melalui praktik langsung di berbagai perangkat dan lingkungan.</p>
+          </div>
+          <div class="tl-item">
+            <h4>Linux, Server & Virtualisasi</h4>
+            <p>Migrasi ke Ubuntu Server, membangun lab Docker dan virtualisasi untuk menjalankan layanan internal.</p>
+          </div>
+          <div class="tl-item">
+            <h4>Monitoring & Observability</h4>
+            <p>Menyadari bahwa "belum ada laporan error" bukan berarti "semua aman" — lalu membangun sistem monitoring dan alerting.</p>
+          </div>
+          <div class="tl-item">
+            <h4>AI & Automation</h4>
+            <p>Eksperimen Hermes Agent, Telegram bot, dan integrasi AI untuk mempercepat diagnosis dan operasional IT sehari-hari.</p>
+          </div>
+        </div>
+        <div class="note-box">
+          <strong>Catatan integritas:</strong> bagian pengalaman, sertifikasi, dan pencapaian sengaja tidak diisi angka atau klaim spesifik. Silakan lengkapi hanya data yang bisa diverifikasi — kepercayaan audiens jauh lebih penting daripada tampilan resume yang bombastis.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">// 05 · Contact</span>
+      <h2>Mari Terhubung</h2>
+      <p>Terbuka untuk diskusi, kolaborasi, atau sekadar bertukar pengalaman seputar networking dan otomasi IT.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <p>Silakan hubungi saya melalui salah satu kanal berikut, atau kirim pesan langsung melalui formulir.</p>
+        <ul class="contact-links" id="contact-links"></ul>
+        <div class="note-box" style="margin-top:22px">
+          <strong>Konfigurasi:</strong> edit objek <span class="mono" style="color:var(--accent)">SITE_CONFIG</span> di bagian atas file <span class="mono">script</span> untuk mengisi nama, brand, dan URL kontak asli Anda. Tautan yang belum diisi tidak akan ditampilkan.
+        </div>
+      </div>
+      <div class="reveal">
+        <form id="contact-form" novalidate>
+          <div class="field" id="f-name">
+            <label for="in-name">Nama</label>
+            <input type="text" id="in-name" placeholder="Nama Anda">
+            <div class="err">Nama wajib diisi (min. 2 karakter).</div>
+          </div>
+          <div class="field" id="f-email">
+            <label for="in-email">Email</label>
+            <input type="email" id="in-email" placeholder="nama@email.com">
+            <div class="err">Format email tidak valid.</div>
+          </div>
+          <div class="field" id="f-msg">
+            <label for="in-msg">Pesan</label>
+            <textarea id="in-msg" placeholder="Tulis pesan Anda..."></textarea>
+            <div class="err">Pesan wajib diisi (min. 10 karakter).</div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Kirim Pesan</button>
+          <div class="form-ok" id="form-ok">✓ Pesan tervalidasi. (Backend belum tersedia — pesan belum benar-benar terkirim. Hubungkan endpoint API Anda di SITE_CONFIG.formEndpoint.)</div>
+          <div class="form-note">⚠ <span>Form ini berjalan 100% di sisi klien. Tanpa endpoint backend, pesan tidak akan terkirim — sesuai prinsip: tidak menampilkan fitur yang belum berfungsi.</span></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot-inner">
+    <p id="foot-copy">© 2026 · dibangun dengan ☕ &amp; terminal</p>
+    <div class="foot-links">
+      <a href="#home">↑ kembali ke atas</a>
+      <a href="#projects">projects</a>
+      <a href="#blog">blog</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MODAL ============ -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal-content" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modal-close" aria-label="Tutup">✕</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+ ============================================================
+   SITE_CONFIG — EDIT BAGIAN INI UNTUK MENGISI IDENTITAS ASLI
+   ============================================================ */
+const SITE_CONFIG = {
+  name: "Yuwanda Imawan A",            // ← ganti dengan nama lengkap
+  brand: "network.engineer",    // ← ganti dengan nama brand / domain
+  email: "kawanmudigital@gmail.com",                    // ← contoh: "nama@email.com" (kosong = disembunyikan)
+  linkedin: "linkedin.com/in/yuwanda-imawan-600929305?originalSubdomain=id",                 // ← contoh: "https://linkedin.com/in/username"
+  github: "https://github.com/yuicode/",                   // ← contoh: "https://github.com/username"
+  telegram: "https://t.me/yuwanda_imawan",                 // ← contoh: "https://t.me/username"
+  formEndpoint: ""              // ← endpoint API form kontak (kosong = mode demo)
+};
+
+
+(function applyConfig(){
+  const c = SITE_CONFIG;
+  if(c.name && c.name !== "Nama Anda"){
+    document.getElementById('hero-name').textContent = c.name;
+    document.getElementById('about-name').textContent = c.name;
+    document.getElementById('page-title').textContent = c.name + " — IT Network Engineer";
+  }
+  if(c.brand && c.brand !== "network.engineer") document.getElementById('brand-name').textContent = c.brand;
+  document.getElementById('foot-copy').textContent = "© " + new Date().getFullYear() + " " + (c.name||"") + " · dibangun dengan terminal";
+
+  const links = [
+    { key:'email',    icon:'✉', label:'Email',    sub:'', href:v=>'mailto:'+v },
+    { key:'linkedin', icon:'in', label:'LinkedIn', sub:'profil profesional', href:v=>v },
+    { key:'github',   icon:'gh', label:'GitHub',   sub:'kode & script', href:v=>v },
+    { key:'telegram', icon:'tg', label:'Telegram', sub:'channel / kontak', href:v=>v }
+  ];
+  const ul = document.getElementById('contact-links');
+  let shown = 0;
+  links.forEach(l=>{
+    const v = c[l.key];
+    if(v && v.trim()){
+      shown++;
+      const li = document.createElement('li');
+      li.innerHTML = '<a href="'+l.href(v.trim())+'" target="_blank" rel="noopener">'+
+        '<span class="ci">'+l.icon+'</span><span>'+l.label+'<small>'+(l.sub||v)+'</small></span></a>';
+      ul.appendChild(li);
+    }
+  });
+  if(shown===0){
+    const li = document.createElement('li');
+    li.innerHTML = '<div class="note-box" style="margin:0"><strong>Belum dikonfigurasi.</strong> Isi SITE_CONFIG di bagian atas script untuk menampilkan tautan kontak asli.</div>';
+    ul.appendChild(li);
+  }
+})();
+
+/* ============ DATA: PROJECTS ============ */
+const PROJECTS = [
+  {
+    id:"monitoring-dashboard", title:"IT Network Monitoring Dashboard", cat:"Monitoring",
+    tag:"DEMO", visual:"GRAFANA · UPTIME",
+    desc:"Dashboard terpusat untuk memantau status perangkat jaringan, latency, dan ketersediaan layanan secara real-time.",
+    tech:["Grafana","Prometheus","SNMP","Ubuntu Server"],
+    background:"Status jaringan hanya diketahui saat ada pengguna yang komplain. Tidak ada visibility terhadap latency, packet loss, atau perangkat yang down sebelum insiden terjadi.",
+    goal:"Membangun monitoring terpusat yang menampilkan kesehatan semua perangkat dan layanan kritis dalam satu dashboard, dengan ambang alert yang jelas.",
+    architecture:
+`┌────────────┐   SNMP/ICMP   ┌──────────────┐
+│ Switch/Core │ ───────────▶ │  Prometheus  │
+│ AP / Server │ ───────────▶ │  (metrics)   │
+└────────────┘               └──────┬───────┘
+                                    │ query
+                              ┌─────▼──────┐
+                              │  Grafana   │ ──▶ Dashboard
+                              └────────────┘`,
+    implementation:[
+      "Deploy Prometheus + Grafana via Docker Compose di Ubuntu Server.",
+      "Konfigurasi SNMP exporter untuk perangkat switch dan akses point.",
+      "Buat dashboard: uptime, latency per segmen, utilisasi interface.",
+      "Set alert rule: latency > threshold, interface down, target unreachable."
+    ],
+    result:"Visibility jaringan berubah dari reaktif menjadi proaktif — gangguan terdeteksi lebih awal lewat dashboard, bukan dari laporan pengguna.",
+    lesson:"Metric yang baik lebih berharga daripada tool mahal. Mulai dari hal sederhana: uptime, latency, dan alert yang actionable."
+  },
+  {
+    id:"telegram-alerting", title:"Telegram-Based Network Alerting", cat:"Automation",
+    tag:"DEMO", visual:"BOT · WEBHOOK",
+    desc:"Bot Telegram yang mengirim notifikasi otomatis saat ada perangkat down atau layanan kritis bermasalah.",
+    tech:["Python","Telegram Bot API","Cron","Hermes Agent"],
+    background:"Notifikasi berbasis email sering terlewat. Teknisi butuh channel alert yang cepat dibaca dan bisa diakses dari mana saja.",
+    goal:"Mengirim alert real-time ke grup Telegram teknisi, dengan ringkasan yang mudah dibaca langsung dari notifikasi.",
+    architecture:
+`┌──────────┐  trigger  ┌─────────────┐  HTTP  ┌──────────────┐
+│ Ping/SNMP │ ────────▶ │ Python bot  │ ─────▶ │ Telegram API │
+│ monitor   │           │ (scheduler) │        │ grup teknisi │
+└──────────┘           └─────────────┘        └──────────────┘`,
+    implementation:[
+      "Script Python menjadwalkan pengecekan uptime target prioritas.",
+      "Integrasi Telegram Bot API untuk kirim pesan alert dengan format terstruktur.",
+      "Dedup logic: alert berulang digabung agar grup tidak spam.",
+      "Eksperimen Hermes Agent untuk menjawab query status jaringan via chat."
+    ],
+    result:"MTTA (mean time to acknowledge) berkurang signifikan — teknisi mengetahui insiden dalam hitungan detik setelah terjadi.",
+    lesson:"Alert yang baik = tepat sasaran, tidak spam, dan mengandung konteks (device, waktu, kemungkinan penyebab)."
+  },
+  {
+    id:"docker-lab", title:"Ubuntu Server & Docker Lab", cat:"Infrastructure",
+    tag:"DEMO", visual:"DOCKER · LAB",
+    desc:"Lab pribadi berbasis Ubuntu Server dan Docker untuk menjalankan layanan internal: monitoring, bot, dan tools jaringan.",
+    tech:["Ubuntu Server","Docker Compose","Nginx","Proxmox"],
+    background:"Butuh lingkungan aman untuk eksperimen tanpa mengganggu sistem produksi — sekaligus media belajar administrasi server.",
+    goal:"Menyediakan lab yang reproducible: semua layanan didefinisikan sebagai code dan bisa di-redeploy dalam hitungan menit.",
+    architecture:
+`┌────────────────────────────────┐
+│      Ubuntu Server / Proxmox   │
+│  ┌────────┐ ┌────────┐ ┌─────┐ │
+│  │Grafana │ │ Alert  │ │ NVR │ │
+│  │contain.│ │ bot    │ │tools│ │
+│  └────────┘ └────────┘ └─────┘ │
+│        Docker Compose stack    │
+└────────────────────────────────┘`,
+    implementation:[
+      "Instalasi Ubuntu Server minimal dengan hardening dasar (SSH key, firewall).",
+      "Semua layanan dijalankan sebagai container dengan docker-compose.yml terpusat.",
+      "Reverse proxy Nginx untuk mengakses dashboard via satu pintu.",
+      "Backup berkala volume data dengan skrip otomatis."
+    ],
+    result:"Eksperimen baru bisa dilakukan tanpa rasa khawatir — lab rusak tinggal redeploy dari compose file.",
+    lesson:"Infrastructure as Code mengubah cara kerja: dokumentasi dan konfigurasi hidup di repo yang sama."
+  },
+  {
+    id:"ai-troubleshooting", title:"AI-Assisted IT Troubleshooting", cat:"AI",
+    tag:"DEMO", visual:"AI · AGENT",
+    desc:"Eksperimen AI Agent (Hermes) untuk membantu diagnosis masalah jaringan dari log dan deskripsi gejala.",
+    tech:["Hermes Agent","LLM API","Bash","Telegram"],
+    background:"Troubleshooting sering menghabiskan waktu untuk membaca log panjang dan mencari pola yang cocok dengan gejala.",
+    goal:"Membangun asisten yang bisa menerima gejala/log, lalu memberikan kandidat penyebab dan langkah pengecekan yang terstruktur.",
+    architecture:
+`┌──────────┐  gejala/log  ┌──────────────┐  prompt  ┌──────────┐
+│ Telegram │ ───────────▶ │ Hermes Agent │ ───────▶ │ LLM API  │
+│  (user)  │ ◀─────────── │  (orkestrasi)│ ◀─────── │ (analisa)│
+└──────────┘  diagnosis   └──────────────┘          └──────────┘`,
+    implementation:[
+      "Desain prompt sistem: persona network engineer, format jawaban terstruktur.",
+      "Agent membaca log terkait, menyusun ringkasan gejala, lalu mengusulkan hipotesis.",
+      "Validasi manual: setiap saran AI diverifikasi sebelum diterapkan.",
+      "Iterasi prompt berdasarkan kasus troubleshooting nyata."
+    ],
+    result:"Waktu analisis awal log berkurang — AI membantu menyaring noise sebelum teknisi menyelam lebih dalam.",
+    lesson:"AI bukan pengganti engineer, tapi amplifier. Output AI wajib diverifikasi, terutama untuk perubahan konfigurasi produksi."
+  },
+  {
+    id:"network-docs", title:"Network Infrastructure Documentation", cat:"Networking",
+    tag:"DEMO", visual:"TOPOLOGY · DOCS",
+    desc:"Dokumentasi topologi, alokasi IP, dan konfigurasi perangkat yang selalu up-to-date dan mudah dicari.",
+    tech:["Diagramming","IPAM","Markdown","Git"],
+    background:"Perubahan konfigurasi sering tidak terdokumentasi, sehingga troubleshooting menjadi menebak-nebak kondisi aktual di lapangan.",
+    goal:"Menyediakan satu sumber kebenaran (single source of truth) untuk topologi, alamat IP, dan konfigurasi kritis.",
+    architecture:
+`topologi fisik/logis ─┐
+tabel alokasi IP ──────┼─▶ repo dokumentasi ─▶ mudah dicari & diaudit
+config kritis ─────────┘      (versioned)`,
+    implementation:[
+      "Gambar ulang topologi fisik dan logical dalam format digital.",
+      "Susun tabel alokasi IP per segmen/VLAN dengan pemilik masing-masing.",
+      "Simpan di repo Git — setiap perubahan tercatat dan bisa ditelusuri.",
+      "Rutinitas review dokumen setiap ada perubahan konfigurasi."
+    ],
+    result:"Waktu onboarding dan troubleshooting berkurang drastis karena tidak perlu lagi menebak-nebak konfigurasi.",
+    lesson:"Dokumentasi adalah bagian dari pekerjaan, bukan pekerjaan tambahan. Versioning membuatnya bisa dipercaya."
+  },
+  {
+    id:"cctv-infra", title:"CCTV Infrastructure Management", cat:"CCTV",
+    tag:"DEMO", visual:"HIK · NVR",
+    desc:"Pengelolaan infrastruktur CCTV: perencanaan kamera, NVR, storage, dan konektivitas jaringan.",
+    tech:["Hikvision","NVR","HikCentral","VLAN"],
+    background:"Sistem CCTV tumbuh organik tanpa perencanaan — kamera bertambah, storage penuh, dan traffic video mengganggu jaringan produksi.",
+    goal:"Merapikan infrastruktur CCTV: segmentasi VLAN khusus, kapasitas storage terukur, dan manajemen terpusat.",
+    architecture:
+`┌─────────┐ PoE ┌──────────┐  ┌───────────┐
+│ Kamera  │ ──▶ │ PoE Switch│─▶│ NVR/Hik   │
+│ (VLAN)  │     │ (VLAN CCTV)│ │ Central   │
+└─────────┘     └──────────┘  └───────────┘
+       terpisah dari VLAN produksi/office`,
+    implementation:[
+      "Audit seluruh kamera: lokasi, resolusi, frame rate, status online.",
+      "Segmentasi VLAN khusus CCTV dengan QoS untuk traffic video.",
+      "Hitung ulang kebutuhan storage berdasarkan retensi yang ditargetkan.",
+      "Konfigurasi HikCentral untuk monitoring dan manajemen terpusat."
+    ],
+    result:"Traffic CCTV terisolasi dari jaringan produksi, retensi rekaman terprediksi, dan operasional monitoring lebih tertib.",
+    lesson:"CCTV adalah proyek jaringan juga — tanpa perencanaan bandwidth dan storage, sistem akan menyerah pada skala."
+  }
+];
+
+/* ============ DATA: BLOG ============ */
+const POSTS = [
+  { slug:"vlan-design-dasar", cat:"Networking", icon:"◆", date:"2026-09-28",
+    title:"Merancang VLAN yang Bersih dan Mudah Dirawat",
+    summary:"Prinsip segmentasi jaringan: pemisahan traffic, penamaan yang konsisten, dan dokumentasi alokasi IP per VLAN.",
+    body:"## Mengapa VLAN?\n\nVLAN memisahkan broadcast domain sehingga traffic satu segmen tidak mengganggu segmen lain. Untuk lingkungan kantor, minimal pisahkan: management, staff, guest, dan device (printer/CCTV).\n\n## Prinsip desain\n\n1. **Satu fungsi, satu VLAN** — hindari VLAN campuran.\n2. **Nomenklatur konsisten** — mis. `VLAN10-MGMT`, `VLAN20-STAFF`.\n3. **Dokumentasikan gateway** setiap VLAN dan aturan inter-VLAN di firewall.\n\n## Catatan troubleshoot\n\nMasalah VLAN klasik: port access salah VLAN, trunk tidak membawa VLAN yang diperlukan, atau native VLAN mismatch. Selalu cek `show vlan` / `display vlan` lebih dulu." },
+  { slug:"troubleshoot-latency", cat:"Troubleshooting", icon:"▲", date:"2026-09-14",
+    title:"Checklist Diagnosa Latency Tinggi di Jaringan Lokal",
+    summary:"Langkah sistematis membedakan masalah kabel, interface, congestions, atau routing — dari lapisan fisik hingga aplikasi.",
+    body:"## Pendekatan berlapis\n\n1. **Lapisan fisik** — cek error counter pada interface (CRC, collision).\n2. **Lapisan data link** — cek duplex mismatch dan status port.\n3. **Lapisan network** — jalankan `mtr` atau `ping` bertahap ke gateway, core, dan internet.\n4. **Aplikasi** — bedakan latency jaringan vs lambatnya server.\n\n## Alat andalan\n\n`mtr -n 8.8.8.8` untuk melihat di hop mana loss/latency mulai muncul. Simpan hasilnya — data lebih kuat daripada asumsi." },
+  { slug:"docker-compose-lab", cat:"Linux & Server", icon:"▣", date:"2026-08-30",
+    title:"Membangun Lab Docker dengan Docker Compose",
+    summary:"Struktur compose file yang rapi untuk menjalankan monitoring stack, bot, dan tools jaringan dalam satu lab.",
+    body:"## Struktur minimal\n\n```yaml\nservices:\n  grafana:\n    image: grafana/grafana\n    restart: unless-stopped\n    ports: [\"3000:3000\"]\n    volumes:\n      - grafana_data:/var/lib/grafana\nvolumes:\n  grafana_data:\n```\n\n## Kebiasaan baik\n\n- Selalu set `restart: unless-stopped`.\n- Data penting di volume, bukan di container.\n- Satu repo per stack, dengan `.env` untuk kredensial." },
+  { slug:"uptime-monitoring-stack", cat:"Monitoring", icon:"◉", date:"2026-08-17",
+    title:"Stack Monitoring Sederhana: Uptime, Latency, Alert",
+    summary:"Mulai dari yang paling penting — apakah layanan hidup? — lalu naik ke metric yang lebih kaya.",
+    body:"## Urutan prioritas\n\n1. **Uptime check** — target hidup atau mati.\n2. **Latency** — seberapa responsif.\n3. **Utilisasi** — apakah mendekati kapasitas.\n\n## Alert yang actionable\n\nSetiap alert harus menjawab: *perangkat apa, sejak kapan, dan apa yang harus dilakukan*. Alert tanpa tindakan = noise. Mulai dari target kritis saja, jangan monitor semua hal sejak hari pertama." },
+  { slug:"telegram-bot-alerting", cat:"AI & Automation", icon:"✦", date:"2026-08-02",
+    title:"Membuat Bot Telegram untuk Alert Jaringan",
+    summary:"Dari polling sederhana hingga notifikasi terstruktur: format pesan, dedup, dan integrasi ke scheduler.",
+    body:"## Konsep dasar\n\nBot mengecek target secara berkala; jika status berubah dari UP ke DOWN (atau sebaliknya), kirim pesan ke grup teknisi.\n\n## Format pesan yang baik\n\n```\n🔴 ALERT · core-switch-01\nStatus : DOWN (sejak 14:32 WIB)\nImpact : VLAN 10, 20, 30 unreachable\nAction : cek power & uplink\n```\n\n## Anti-spam\n\nKirim hanya saat ada **perubahan** status, bukan setiap pengecekan. Gabungkan alert beruntun dalam jendela waktu tertentu." },
+  { slug:"hermes-agent-network", cat:"AI & Automation", icon:"✦", date:"2026-07-21",
+    title:"Eksperimen Hermes Agent untuk Diagnosis Jaringan",
+    summary:"Mengarahkan AI Agent untuk membaca log dan menyusun hipotesis gangguan — serta batasan yang harus dijaga.",
+    body:"## Setup eksperimen\n\nAgent menerima input berupa gejala atau potongan log, lalu menyusun kandidat penyebab dan langkah verifikasi.\n\n## Prinsip penggunaan yang aman\n\n- **AI menyarankan, manusia memutuskan.**\n- Verifikasi ulang setiap rekomendasi sebelum konfigurasi diubah.\n- Jangan tempelkan kredensial atau data sensitif ke prompt.\n\nHasil terbaik didapat saat log yang diberikan sudah bersih dan relevan — quality in, quality out." },
+  { slug:"hikcentral-deployment", cat:"CCTV & Infrastructure", icon:"◈", date:"2026-07-05",
+    title:"Catatan Deployment HikCentral di Jaringan Segmentasi",
+    summary:"Menghubungkan NVR dan kamera di VLAN CCTV dengan platform manajemen terpusat.",
+    body:"## Topologi\n\nKamera → PoE Switch (VLAN CCTV) → NVR → HikCentral Server.\n\n## Poin yang sering terlewat\n\n- Routing antar-VLAN harus mengizinkan traffic HikCentral ↔ NVR.\n- Bandwidth upstream kamera dihitung dari resolusi × frame rate × jumlah kamera.\n- Storage direncanakan dari retensi, bukan sebaliknya.\n\nDokumentasikan alamat IP semua perangkat di tabel IPAM agar maintenance tidak menebak." }
+];
+
+const CATEGORIES = ["Semua","Networking","Linux & Server","Troubleshooting","Monitoring","AI & Automation","CCTV & Infrastructure"];
+const CAT_STYLE = {
+  "Networking":"color:#2fd47e","Linux & Server":"color:#22b8cf","Troubleshooting":"color:#e0b25f",
+  "Monitoring":"color:#2fd47e","AI & Automation":"color:#b48cf2","CCTV & Infrastructure":"color:#e08a5f"
+};
+
+/* ============ RENDER: PROJECTS ============ */
+(function renderProjects(){
+  const grid = document.getElementById('proj-grid');
+  PROJECTS.forEach(p=>{
+    const el = document.createElement('article');
+    el.className = 'proj-card';
+    el.innerHTML =
+      '<div class="proj-visual">'+p.visual+'</div>'+
+      '<div class="proj-body">'+
+        '<span class="proj-cat">'+p.cat+' · <span class="demo-badge">DEMO DATA</span></span>'+
+        '<h3>'+p.title+'</h3>'+
+        '<p>'+p.desc+'</p>'+
+        '<ul class="proj-tech">'+p.tech.map(t=>'<li>'+t+'</li>').join('')+'</ul>'+
+        '<span class="proj-link">Lihat detail →</span>'+
+      '</div>';
+    el.addEventListener('click',()=>openProject(p));
+    grid.appendChild(el);
+  });
+})();
+
+/* ============ RENDER: BLOG ============ */
+let activeCat = "Semua";
+(function renderFilters(){
+  const row = document.getElementById('filter-row');
+  CATEGORIES.forEach(c=>{
+    const b = document.createElement('button');
+    b.className = 'filter-btn'+(c===activeCat?' active':'');
+    b.textContent = c;
+    b.addEventListener('click',()=>{
+      activeCat = c;
+      row.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      renderPosts();
+    });
+    row.appendChild(b);
+  });
+})();
+
+function renderPosts(){
+  const grid = document.getElementById('blog-grid');
+  grid.innerHTML = '';
+  const list = POSTS.filter(p=>activeCat==="Semua"||p.cat===activeCat);
+  if(!list.length){ grid.innerHTML='<p style="color:var(--dim)">Belum ada artikel di kategori ini.</p>'; return; }
+  list.forEach(p=>{
+    const el = document.createElement('article');
+    el.className = 'post-card';
+    el.innerHTML =
+      '<div class="post-cover" style="'+(CAT_STYLE[p.cat]||'')+';background:var(--panel2)">'+p.icon+'</div>'+
+      '<div class="post-body">'+
+        '<div class="post-meta"><span class="post-cat">'+p.cat+'</span><span>'+p.date+'</span><span class="demo-badge">DEMO</span></div>'+
+        '<h3>'+p.title+'</h3>'+
+        '<p>'+p.summary+'</p>'+
+        '<span class="read-more">Baca artikel →</span>'+
+      '</div>';
+    el.addEventListener('click',()=>openPost(p));
+    grid.appendChild(el);
+  });
+}
+renderPosts();
+
+/* ============ MODAL ============ */
+const overlay = document.getElementById('modal-overlay');
+const modalBody = document.getElementById('modal-body');
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+
+function openProject(p){
+  modalBody.innerHTML =
+    '<span class="m-kicker">PROJECT · '+p.cat+' · <span class="demo-badge">DEMO DATA</span></span>'+
+    '<h2>'+p.title+'</h2>'+
+    '<div class="m-meta">'+p.tech.join('  ·  ')+'</div>'+
+    '<div class="m-block"><h3>// Latar Belakang</h3><p>'+p.background+'</p></div>'+
+    '<div class="m-block"><h3>// Tujuan</h3><p>'+p.goal+'</p></div>'+
+    '<div class="m-block"><h3>// Arsitektur Sistem</h3><div class="m-code">'+esc(p.architecture)+'</div></div>'+
+    '<div class="m-block"><h3>// Implementasi</h3><ul>'+p.implementation.map(i=>'<li>'+i+'</li>').join('')+'</ul></div>'+
+    '<div class="m-block"><h3>// Hasil Pengujian</h3><div class="m-result">'+p.result+'</div></div>'+
+    '<div class="m-block"><h3>// Pelajaran</h3><div class="m-learn">'+p.lesson+'</div></div>';
+  overlay.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function mdToHtml(md){
+  // markdown mini: heading ##, list -, code fence, **bold**, paragraph
+  const lines = md.split('\n'); let html='', inCode=false, inList=false;
+  lines.forEach(l=>{
+    if(l.startsWith('```')){ inCode=!inCode; html+= inCode?'<div class="m-code">':'</div>'; return; }
+    if(inCode){ html+=esc(l)+'\n'; return; }
+    if(l.startsWith('## ')){ if(inList){html+='</ul>';inList=false;} html+='<h3 style="margin:18px 0 8px;font-size:1.05rem">'+l.slice(3)+'</h3>'; return; }
+    if(/^- /.test(l)){ if(!inList){html+='<ul>';inList=true;} html+='<li>'+l.slice(2)+'</li>'; return; }
+    if(inList){html+='</ul>';inList=false;}
+    if(l.trim()===''){ html+=''; return; }
+    html+='<p style="margin:10px 0">'+l.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')+'</p>';
+  });
+  if(inList) html+='</ul>';
+  return html;
+}
+
+function openPost(p){
+  const related = POSTS.filter(x=>x.cat===p.cat && x.slug!==p.slug).slice(0,3);
+  modalBody.innerHTML =
+    '<span class="m-kicker">'+p.cat.toUpperCase()+' · <span class="demo-badge">DEMO ARTICLE</span></span>'+
+    '<h2>'+p.title+'</h2>'+
+    '<div class="m-meta">'+p.date+' · slug: /blog/'+p.slug+'</div>'+
+    mdToHtml(p.body)+
+    (related.length?'<div class="m-block"><h3>// Artikel Terkait</h3><div class="related">'+
+      related.map(r=>'<a data-slug="'+r.slug+'">'+r.title+'</a>').join('')+'</div></div>':'');
+  overlay.classList.add('open');
+  document.body.style.overflow='hidden';
+  modalBody.querySelectorAll('.related a').forEach(a=>{
+    a.addEventListener('click',()=>{
+      const target = POSTS.find(x=>x.slug===a.dataset.slug);
+      if(target) openPost(target);
+    });
+  });
+}
+
+document.getElementById('modal-close').addEventListener('click',closeModal);
+overlay.addEventListener('click',e=>{ if(e.target===overlay) closeModal(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
+function closeModal(){ overlay.classList.remove('open'); document.body.style.overflow=''; }
+
+/* ============ CONTACT FORM ============ */
+document.getElementById('contact-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('in-name').value.trim();
+  const email = document.getElementById('in-email').value.trim();
+  const msg = document.getElementById('in-msg').value.trim();
+  let ok = true;
+  function check(id, valid){ document.getElementById(id).classList.toggle('invalid', !valid); if(!valid) ok=false; }
+  check('f-name', name.length>=2);
+  check('f-email', /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email));
+  check('f-msg', msg.length>=10);
+  if(!ok) return;
+  const box = document.getElementById('form-ok');
+  box.style.display='block';
+  if(SITE_CONFIG.formEndpoint){
+    fetch(SITE_CONFIG.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name,email,message:msg})})
+      .then(()=>{ box.textContent='✓ Pesan terkirim. Terima kasih!'; this.reset(); })
+      .catch(()=>{ box.textContent='✗ Gagal mengirim. Coba lagi atau hubungi via kanal lain.'; });
+  }
+  this.reset();
+});
+
+/* ============ TOPOLOGY SVG ANIMATION ============ */
+(function topo(){
+  const svg = document.getElementById('topo');
+  const W=1200,H=700; svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  const nodes=[
+    {x:600,y:120,r:26,c:'#2fd47e',l:'CORE'},
+    {x:300,y:300,r:16,c:'#22b8cf',l:'SW-1'},{x:600,y:320,r:16,c:'#22b8cf',l:'SW-2'},{x:900,y:300,r:16,c:'#22b8cf',l:'SW-3'},
+    {x:180,y:480,r:11,c:'#5f7191',l:''},{x:340,y:520,r:11,c:'#5f7191',l:''},
+    {x:520,y:500,r:11,c:'#5f7191',l:''},{x:680,y:520,r:11,c:'#5f7191',l:''},
+    {x:840,y:500,r:11,c:'#5f7191',l:''},{x:1020,y:470,r:11,c:'#5f7191',l:''},
+    {x:420,y:180,r:11,c:'#5f7191',l:''},{x:800,y:180,r:11,c:'#5f7191',l:''}
+  ];
+  const links=[[0,1],[0,2],[0,3],[1,4],[1,5],[2,6],[2,7],[3,8],[3,9],[0,10],[0,11]];
+  let s='';
+  links.forEach(([a,b])=>{
+    s+='<line x1="'+nodes[a].x+'" y1="'+nodes[a].y+'" x2="'+nodes[b].x+'" y2="'+nodes[b].y+'" stroke="#1e2d47" stroke-width="1.5"/>';
+  });
+  // paket berjalan di sepanjang link
+  links.forEach(([a,b],i)=>{
+    const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('r','3'); c.setAttribute('fill', i%3===0?'#2fd47e':'#22b8cf');
+    svg.appendChild(c);
+    const A=nodes[a],B=nodes[b],dur=3+ (i%5)*0.7;
+    const anim=document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
+    anim.setAttribute('dur',dur+'s'); anim.setAttribute('repeatCount','indefinite');
+    anim.setAttribute('path','M'+A.x+','+A.y+' L'+B.x+','+B.y);
+    c.appendChild(anim);
+  });
+  nodes.forEach(n=>{
+    s+='<circle cx="'+n.x+'" cy="'+n.y+'" r="'+n.r+'" fill="none" stroke="'+n.c+'" stroke-opacity=".35" stroke-width="1.5"/>'+
+       '<circle cx="'+n.x+'" cy="'+n.y+'" r="'+(n.r*0.35)+'" fill="'+n.c+'" fill-opacity=".8"/>';
+    if(n.l) s+='<text x="'+n.x+'" y="'+(n.y+n.r+16)+'" fill="#3a4c6b" font-size="11" font-family="JetBrains Mono,monospace" text-anchor="middle">'+n.l+'</text>';
+  });
+  svg.insertAdjacentHTML('afterbegin', s);
+})();
+
+/* ============ SCROLL: reveal + scrollspy ============ */
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('visible'); io.unobserve(en.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const sections = document.querySelectorAll('section[id], header[id]');
+const navA = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='home';
+  sections.forEach(s=>{ if(window.scrollY >= s.offsetTop-120) cur=s.id; });
+  navA.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+cur));
+},{passive:true});
+
+document.getElementById('burger').addEventListener('click',()=>{
+  document.getElementById('nav-links').classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>document.getElementById('nav-links').classList.remove('open'));
+});
+</script>
+</body>
+</html>
